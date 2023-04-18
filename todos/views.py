@@ -11,5 +11,11 @@ def show_list(request):
 
 def todo_list_detail(request, id):
     lists = get_object_or_404(TodoList, id=id)
-    context = {"list_object": lists}
+    context = {
+        "list_object": lists}
     return render(request, "todos/detail.html", context)
+
+# def todo_lists_update(request,id):
+#     list = get_object_or_404(TodoList, id=id)
+#     if request.method == "POST":
+#         update_list

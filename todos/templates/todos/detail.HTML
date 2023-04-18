@@ -5,31 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>Tasks</title>
 </head>
 
 <body>
     <main>
         <div>
-            <h1>My Lists</h1>
+            <h1>{{ list_object.name }} </h1>
+            <a href="{% url 'todo_list_detail' list_object.id %}">Edit</a>
+            <h2> Tasks </h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Name </th>
-                        <th>Number of items </th>
+                        <th> Task</th>
+                        <th> Due Date </th>
                     </tr>
                 <tbody>
-                    {% for todo in show_list %}
+                    {% for todo in list_object.items.all %}
                     <tr>
-                        <td><a href="{% url 'todo_list_detail' todo.id %}">{{ todo.name }}</a></td>
-                        <td>{{todo.items.all|length}}</td>
+                        <td>{{ todo.task}}</td>
+                        <td>{{ todo.due_date|date:"M d Y" }}</td>
+                        {% endfor %}
                     </tr>
-                    {% endfor %}
                 </tbody>
                 </thead>
             </table>
         </div>
     </main>
 </body>
-</html>
-                      
+
+</html>   
