@@ -9,3 +9,5 @@ class TodoListAdmin(admin.ModelAdmin):
         "name",
         "id",
     )
+
+
