@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Create Todo List</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <h1>Create a new list</h1>
+            <form method="POST" action="{% url 'todo_list_create' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div>
+                    <button type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>
