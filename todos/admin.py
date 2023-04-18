@@ -16,3 +16,4 @@ class TodoItemAdmin(admin.ModelAdmin):
         "task",
         "due_date",
     )
+ 
